@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kaywhyLA/professional-README/issues"
   },
-  "homepage": "https://github.com/kaywhyLA/professional-README#readme"
+  "homepage": "https://github.com/kaywhyLA/professional-README#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
