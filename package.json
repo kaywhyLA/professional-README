@@ -1,0 +1,19 @@
+{
+  "name": "professional-readme",
+  "version": "1.0.0",
+  "description": "create a command-line application that generates a professional README.md file, from a users input using inquirer package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaywhyLA/professional-README.git"
+  },
+  "author": "khaylla hite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaywhyLA/professional-README/issues"
+  },
+  "homepage": "https://github.com/kaywhyLA/professional-README#readme"
+}
