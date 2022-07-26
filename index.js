@@ -1,16 +1,18 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
+const fs = require('fs');
+const generateMarkdown = require('./develop/utilize/generateMarkdown')
 
 // prompt user for questions 
 const promptUser = () => {
     return inquirer.prompt([{
             type: 'input',
-            name: 'name',
+            name: 'Name',
             message: 'What is the title of your project?'
         },
         {
             type: 'input',
-            name: 'description',
+            name: 'Description',
             message: 'Please provide a description of the project.',
 
         },
@@ -21,33 +23,33 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'installation',
+            name: 'Installation',
             message: 'How can a user install this application?',
         },
         {
             type: 'input',
-            name: 'features',
+            name: 'Features',
             message: 'What are the features of the application?'
         },
         {
             type: 'list',
-            name: 'license',
+            name: 'License',
             message: 'Choose a license for the application',
             choices: ['Unlincensed', 'MIT', 'Apache', 'Mozilla Public License(MPL)', 'Berkeley Source Distribution(BSO)', 'Eclipse Public License(EPL)']
         },
         {
             type: 'input',
-            name: 'contributors',
+            name: 'Contributors',
             message: 'List other contributors to your project.'
         },
         {
             type: 'input',
-            name: 'tests',
+            name: 'Tests',
             message: 'How can a user test the application?'
         },
         {
             type: 'input',
-            name: 'questions',
+            name: 'Questions',
             message: 'Add your Github in order for others to ask questions.'
         }
     ]);
