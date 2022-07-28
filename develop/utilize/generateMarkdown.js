@@ -1,19 +1,15 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-    if (license === 'Apache') {
-        return '![License: Apache](https://www.apache.org/licenses/LICENSE-2.0.txt)(https://opensource.org/licenses/Apache-2.0)'
-    }
-    if (license === 'Unlincense') {
-        return ''
-    }
-    if (license === 'Mozilla Public License') {
-        return '![License: MPL-2.0](https://opensource.org/licenses/MPL-2.0)(http://www.gnu.org/licenses/license-list.html#MPL-2.0)'
-    }
-    if (license === 'Berkeley Source Distribution') {
-        return ''
-    }
+    if (license === "Apache") {
+        return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+    } else if (license === "MIT") {
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+    } else if (license === "IBM") {
+        return "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)"
+    } else { return "" }
 }
+
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
