@@ -1,32 +1,62 @@
+const fs = require('fs');
+const inquirer = require('inquirer');
+
+
+
+
+
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
     if (license === "Apache") {
-        return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+        '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
     } else if (license === "MIT") {
-        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+        '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
     } else if (license === "IBM") {
-        return "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)"
-    } else { return "" }
+        '![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
+    } else { '' }
 }
+return;
 
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+    let licenseLink = '';
+    if (license === 'Apache') {
+        licenseLink = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+    } else if (license === 'MIT') {
+        licenseLink = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+    } else if (license === 'IBM') {
+        licenseLink = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
+    } else {
+        licenseLink = ''
+    }
+    return licenseLink;
+
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+    let licenseSection = '';
+    if (license === 'None') {
+        licenseSection = ''
+    } else {
+        licenseSection =
+            'License: ${license}'
+    }
+    return licenseSection;
+}
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-    return `# ${data.title}
+function generateMarkdown(answer) {
+    return `# ${answer.title}
 
-##Description 
--${data.why}
--${data.problem}
--${data.learn}
+
+## ${renderLicenseSection(answer.license)} ${renderLicenseBadge(answer.license)}
+### ${renderLicenseLink(answer.license)}
 
 ##Table of Contents
 
@@ -36,43 +66,30 @@ function generateMarkdown(data) {
 -[Features](#features)
 -[Credits](#contributors & credit)
 -[Tests](#tests)
--[Questions](#questions)
+-[Email](#email)
 -[How to contribute](#how to contribute)
 
-##License 
 
-- ${renderLicense(data.license)}
+##Installation:
+### You must install the following for this app to function:
+- ${answer.installation}
 
-Refer to 
+## Features:
+### ${answer.features}
 
-##Installation
-To install this application, please follow the steps below:
-- ${data.install}
+## Contributor:
+### ${answer.contribution}
 
-##Usage 
+## Tests:
+### Run the following commands in your terminal to test this app:
+### ${answer.test}
 
-![alt text][]
-
-## Features
-
-- ${data.features}
-
-## Contributor & credit
-
-- ${data.contributors}
-- ${data.thirdparty}
-
-## Tests
-
-- ${data.test} 
-
-## Questions 
-
-- ${data.contribute}
-
-
-
+## Questions: 
+### If you have any questions, you may contact at either
+### Github: https://github.com/${answer.askMe}
+### or 
+### Email: ${answer.email}
+    
 `;
 }
-
 module.exports = generateMarkdown;
